@@ -1,0 +1,1048 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/18/2021 2:58:45 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DE-DACSQLDWN031"
+  DTS:CreatorName="PWC-DE\DE122056A"
+  DTS:DTSID="{E8D404A0-CB3E-4D57-9C65-066FEB62A72D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.166"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Start_TestCaseRun_SQL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="70"
+  DTS:VersionGUID="{1F48AF31-2D25-436E-8B8B-153321EBAD83}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Target]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{2789DE92-4A57-42C5-86BD-99430D279ACC}"
+      DTS:ObjectName="Target">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::ConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=InControl;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{EE5F43D7-C63B-4CD7-A5BC-8BF407F23B8A}"
+      DTS:ObjectName="ConnectionString">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=localhost;Initial Catalog=InControl;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{AF5126BF-4250-4937-A032-070A43EEC52F}"
+      DTS:ObjectName="ResultType">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">None</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E80879BA-58FC-4705-816C-17398D991E9F}"
+      DTS:ObjectName="Statement">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">select cast(1 as varchar(255)) as _AXIS, cast(1 as varchar(255)) as _VALUE</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{689E79D8-7591-4C6C-9203-945614E202BB}"
+      DTS:ObjectName="TestCaseId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{27AAFB53-F19B-44E6-844E-70916FE9E2FF}"
+      DTS:ObjectName="TestLayerId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{CE63005D-CBBA-4431-825D-15D78C3BB6DE}"
+      DTS:ObjectName="TestLayerRunId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E294B81D-A2A8-4657-BE7A-2F9807FD4D81}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::ConnectionString]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ConnectionString">
+      <DTS:VariableValue
+        DTS:DataType="8">Data Source=localhost;Initial Catalog=InControl;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{513795AE-862C-4DC1-9B77-80F6C6D74D27}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="GETDATE()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="StartDT">
+      <DTS:VariableValue
+        DTS:DataType="7">7/29/2021 10:15:43 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E62854E3-0918-4A3E-AC60-2EB6186837B5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::Statement]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Statement">
+      <DTS:VariableValue
+        DTS:DataType="8">select cast(1 as varchar(255)) as _AXIS, cast(1 as varchar(255)) as _VALUE</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{91321AF4-32D4-406B-80EA-217B7D3224DC}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::TestCaseId]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TestCaseId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5DE0AA6C-F056-4F6D-9617-844A2382C938}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::TestLayerId]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TestLayerId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9F48DE2D-AA9F-4B17-B1C7-27C3722C9A3C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::TestLayerRunId]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TestLayerRunId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT - SQL TestCase"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{81B62DA2-1481-474D-8B5D-1DA0291ED36A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - SQL TestCase"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - SQL TestCase\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - SQL TestCase\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - SQL TestCase\Data Conversion.Inputs[Data Conversion Input].Columns[_AXIS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="_AXIS"
+                      lineageId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].Columns[_AXIS]" />
+                    <inputColumn
+                      refId="Package\DFT - SQL TestCase\Data Conversion.Inputs[Data Conversion Input].Columns[_VALUE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="_VALUE"
+                      lineageId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].Columns[_VALUE]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT - SQL TestCase\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Output].Columns[_AXIS_UNICODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Output].Columns[_AXIS_UNICODE]"
+                      name="_AXIS_UNICODE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].Columns[_AXIS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Output].Columns[_VALUE_UNICODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Output].Columns[_VALUE_UNICODE]"
+                      name="_VALUE_UNICODE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].Columns[_VALUE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT - SQL TestCase\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - SQL TestCase\DER - Extra Cols"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER - Extra Cols"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - SQL TestCase\DER - Extra Cols.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - SQL TestCase\DER - Extra Cols.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[TestCaseId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[TestCaseId]"
+                      name="TestCaseId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::TestCaseId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::TestCaseId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[TestLayerId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[TestLayerId]"
+                      name="TestLayerId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::TestLayerId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::TestLayerId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[TestLayerRunId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[TestLayerRunId]"
+                      name="TestLayerRunId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::TestLayerRunId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::TestLayerRunId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[StartDT]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[StartDT]"
+                      name="StartDT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::StartDT]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::StartDT]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[EndDT]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[EndDT]"
+                      name="EndDT"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,10,1252)"Successful"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,10,1252)"Successful"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[ResultType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="6"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[ResultType]"
+                      name="ResultType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_STR,6,1252)@[$Package::ResultType]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_STR,6,1252)@[$Package::ResultType]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - SQL TestCase\DER - Extra Cols.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE_DST - TestCaseResult"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[log].[TestCaseResult]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Connections[OleDbConnection]"
+                  connectionManagerID="{481E3506-48D9-4011-928F-754E97CB8A3F}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[InControl]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].Columns[TestCaseId]"
+                      cachedDataType="i4"
+                      cachedName="TestCaseId"
+                      externalMetadataColumnId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[TestCaseId]"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[TestCaseId]" />
+                    <inputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].Columns[StartDT]"
+                      cachedDataType="date"
+                      cachedName="StartDT"
+                      externalMetadataColumnId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[StartDT]"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[StartDT]" />
+                    <inputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].Columns[EndDT]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="EndDT"
+                      externalMetadataColumnId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[EndDT]"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[EndDT]" />
+                    <inputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].Columns[Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Status"
+                      externalMetadataColumnId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].Columns[TestLayerRunId]"
+                      cachedDataType="i4"
+                      cachedName="TestLayerRunId"
+                      externalMetadataColumnId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[TestLayerRunId]"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[TestLayerRunId]" />
+                    <inputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].Columns[ResultType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="ResultType"
+                      externalMetadataColumnId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[ResultType]"
+                      lineageId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output].Columns[ResultType]" />
+                    <inputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].Columns[_AXIS_UNICODE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="_AXIS_UNICODE"
+                      externalMetadataColumnId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[Axis]"
+                      lineageId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Output].Columns[_AXIS_UNICODE]" />
+                    <inputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].Columns[_VALUE_UNICODE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="_VALUE_UNICODE"
+                      externalMetadataColumnId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      lineageId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Output].Columns[_VALUE_UNICODE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[TestCaseResultId]"
+                      dataType="i4"
+                      name="TestCaseResultId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[TestCaseId]"
+                      dataType="i4"
+                      name="TestCaseId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[Axis]"
+                      dataType="wstr"
+                      length="255"
+                      name="Axis" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[StartDT]"
+                      dataType="dbTimeStamp"
+                      name="StartDT" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[EndDT]"
+                      dataType="dbTimeStamp"
+                      name="EndDT" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[Value]"
+                      dataType="wstr"
+                      length="255"
+                      name="Value" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[TestLayerRunId]"
+                      dataType="i4"
+                      name="TestLayerRunId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input].ExternalColumns[ResultType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="ResultType" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - SQL TestCase\OLE_SRC - Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE_SRC - Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable">User::Statement</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - SQL TestCase\OLE_SRC - Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Target]"
+                  connectionManagerRefId="Package.ConnectionManagers[Target]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].Columns[_AXIS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].ExternalColumns[_AXIS]"
+                      length="255"
+                      lineageId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].Columns[_AXIS]"
+                      name="_AXIS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].Columns[_VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].ExternalColumns[_VALUE]"
+                      length="255"
+                      lineageId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].Columns[_VALUE]"
+                      name="_VALUE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].ExternalColumns[_AXIS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="_AXIS" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output].ExternalColumns[_VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="_VALUE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Error Output].Columns[_AXIS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Error Output].Columns[_AXIS]"
+                      name="_AXIS" />
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Error Output].Columns[_VALUE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Error Output].Columns[_VALUE]"
+                      name="_VALUE" />
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - SQL TestCase.Paths[Data Conversion Output]"
+              endId="Package\DFT - SQL TestCase\DER - Extra Cols.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT - SQL TestCase\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT - SQL TestCase.Paths[Derived Column Output]"
+              endId="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - SQL TestCase\DER - Extra Cols.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - SQL TestCase.Paths[OLE DB Source Output]"
+              endId="Package\DFT - SQL TestCase\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - SQL TestCase\OLE_SRC - Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{62E2A32D-B001-4AA0-8C45-BCDF2335E8BD}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{D1696CD0-907D-4E0E-9D95-A7FE436752E1}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SQL - (Log) End TestCaseRun with Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{39EB8872-B387-486E-A99C-D0BC3BD5D3A2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL - (Log) End TestCaseRun with Error"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{481E3506-48D9-4011-928F-754E97CB8A3F}"
+              SQLTask:SqlStatementSource="exec log.sp_EndTestCaseRun ?, ?, ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="User::TestCaseId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::TestLayerRunId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::StartDT"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="7"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\DFT - SQL TestCase"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="269,42"
+          Id="Package.EventHandlers[OnError]\SQL - (Log) End TestCaseRun with Error"
+          TopLeft="98,54" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFT - SQL TestCase">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\DFT - SQL TestCase\OLE_SRC - Source"
+          TopLeft="25.5,5.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT - SQL TestCase\DER - Extra Cols"
+          TopLeft="30,209.5" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult"
+          TopLeft="5.50000000000003,311.5" />
+        <EdgeLayout
+          Id="Package\DFT - SQL TestCase.Paths[Derived Column Output]"
+          TopLeft="108,251.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT - SQL TestCase\Data Conversion"
+          TopLeft="30,107.5" />
+        <EdgeLayout
+          Id="Package\DFT - SQL TestCase.Paths[OLE DB Source Output]"
+          TopLeft="108,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - SQL TestCase.Paths[Data Conversion Output]"
+          TopLeft="108,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - SQL TestCase\OLE_SRC - Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - SQL TestCase\OLE_DST - TestCaseResult">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
